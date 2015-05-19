@@ -14,7 +14,8 @@ var googleAnalyticsConfigDefaults = {
 function analyticsTrackingCode(config) {
   var scriptArray,
       displayFeaturesString,
-      gaConfig = {};
+      gaConfig = {},
+      webPropertyId;
 
   if (config.cookieDomain != null) {
     gaConfig.cookieDomain = config.cookieDomain;
@@ -31,6 +32,12 @@ function analyticsTrackingCode(config) {
     gaConfig = JSON.stringify(gaConfig);
   }
 
+  if (config.webPropertyIdPath) {
+    webPropertyId = "(" + config.webPropertyIdPath + "|| '" + config.webPropertyId + "')";
+  } else {
+    webPropertyId = "'" + config.webPropertyId + "'";
+  }
+
   scriptArray = [
     "<script>",
     "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){",
@@ -38,7 +45,7 @@ function analyticsTrackingCode(config) {
     "m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)",
     "})(window,document,'script','https://www.google-analytics.com/analytics.js','" + config.globalVariable + "');",
     "",
-    "" + config.globalVariable + "('create', '" + config.webPropertyId + "', " + gaConfig + ");",
+    "" + config.globalVariable + "('create', " + webPropertyId + ", " + gaConfig + ");",
     "</script>"
   ];
 
