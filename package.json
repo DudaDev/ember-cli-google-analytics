@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/pgrippi/ember-cli-google-analytics.git"
+    "url": "git://github.com/DudaDev/ember-cli-duda-fork-google-analytics.git"
   },
   "bugs": {
-    "url": "https://github.com/pgrippi/ember-cli-google-analytics/issues"
+    "url": "https://github.com/DudaDev/ember-cli-duda-fork-google-analytics/issues"
   },
-  "homepage": "https://github.com/pgrippi/ember-cli-google-analytics",
+  "homepage": "https://github.com/DudaDev/ember-cli-duda-fork-google-analytics",
   "engines": {
     "node": ">= 0.10.0"
   },
